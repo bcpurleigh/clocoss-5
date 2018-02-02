@@ -61,13 +61,14 @@ echo "External IP is $externalIP";
 echo "Creating Cloud Worker VMs";
 
 # create vms
+for i in `seq 1 $vms`
 gcloud compute instances create  \
 --machine-type n1-standard-1  \
 --tags http-server,https-server  \
---metadata key=$key,ip=$externalIP  \
+--metadata key=$key,ip=$externalIP, num=$i  \
 --metadata-from-file  \
           startup-script=../startup-script.sh  \
-`seq -f 'ben-worker-%g' 1 $vms` \
+ben-worker-$i \
 --preemptible;
 
 echo "VMs created, sit tight.";

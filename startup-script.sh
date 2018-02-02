@@ -24,12 +24,13 @@ npm install;
 # get metadata that was passed through
 workkey=`curl -s -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/attributes/key"`;
 workserverIP=`curl -s -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/attributes/ip"`;
+vmNumber=`curl -s -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/attributes/num"`;
 
 echo "$workkey is key and $workserverIP is ip.";
 
 # run client
 npm run client $workkey $workserverIP:8080
-gcloud logging write vm-logger "$workkey We contributed"
+gcloud logging write vm-logger "$vmNumber said: 'We contributed'"
 
 # turn off the worker vm
 sudo poweroff
