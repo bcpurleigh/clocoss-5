@@ -4,7 +4,7 @@ A tool used to create and implement the [clocoss-master-worker](https://github.c
 
 ## Installation:
 1. Clone the repo to a [Google Cloud SDK](https://cloud.google.com/sdk/docs/) enabled cli with https,http-server tags and full access to the Google Cloud API enabled.
-2. Enter the clocoss-1 directory (or wherever you installed to) then run:
+2. Enter the clocoss-5 directory (or wherever you installed to) then run:
 ```
 bash startup.sh <<number of vms to create>>
 ```
