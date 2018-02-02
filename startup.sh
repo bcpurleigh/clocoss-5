@@ -83,6 +83,7 @@ echo "All puzzles completed.";
 echo "Deleting the workers VMs and their disks";
 
 gcloud -q compute instances delete `seq -f 'ben-worker-%g' 1 $vms`;
+gcloud logging read vm-logger
 
 # We're done here
 echo "All done. Thank you!";
