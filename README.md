@@ -1,4 +1,4 @@
-# gcloud Master Worker VM Tool: clocoss-1
+# gcloud Master Worker VM Tool: clocoss-5
 
 A tool used to create and implement the [clocoss-master-worker](https://github.com/portsoc/clocoss-master-worker/) script. 
 
