@@ -61,7 +61,7 @@ echo "External IP is $externalIP";
 
 
 echo "Starting master server";
-npm run server $key &;
+npm run server $key &
 
 echo "Creating Cloud Worker VMs";
 
