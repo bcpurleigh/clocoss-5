@@ -58,6 +58,11 @@ externalIP=`curl -s -H "Metadata-Flavor: Google"  \
    "http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip"`;
 echo "External IP is $externalIP";
 
+
+
+echo "Starting master server";
+npm run server $key &;
+
 echo "Creating Cloud Worker VMs";
 
 # create vms
@@ -75,8 +80,7 @@ done
 
 echo "VMs created, sit tight.";
 
-echo "Starting master server";
-npm run server $key;
+
 
 # Tasks completed
 echo "All puzzles completed.";
