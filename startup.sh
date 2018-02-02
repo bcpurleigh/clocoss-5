@@ -66,7 +66,7 @@ do
 gcloud compute instances create  \
 --machine-type n1-standard-1  \
 --tags http-server,https-server  \
---metadata key=$key,ip=$externalIP, num=$i  \
+--metadata key=$key,ip=$externalIP,num=$i  \
 --metadata-from-file  \
           startup-script=../startup-script.sh  \
 ben-worker-$i \
