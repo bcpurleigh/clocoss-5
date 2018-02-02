@@ -67,7 +67,8 @@ gcloud compute instances create  \
 --metadata key=$key,ip=$externalIP  \
 --metadata-from-file  \
           startup-script=../startup-script.sh  \
-`seq -f 'ben-worker-%g' 1 $vms`;
+`seq -f 'ben-worker-%g' 1 $vms` \
+--preemptible;
 
 echo "VMs created, sit tight.";
 
