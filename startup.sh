@@ -62,6 +62,7 @@ echo "Creating Cloud Worker VMs";
 
 # create vms
 for i in `seq 1 $vms`
+do
 gcloud compute instances create  \
 --machine-type n1-standard-1  \
 --tags http-server,https-server  \
@@ -70,6 +71,7 @@ gcloud compute instances create  \
           startup-script=../startup-script.sh  \
 ben-worker-$i \
 --preemptible;
+done
 
 echo "VMs created, sit tight.";
 
