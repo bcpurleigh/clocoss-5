@@ -36,11 +36,6 @@ externalIP=`curl -s -H "Metadata-Flavor: Google"  \
    "http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip"`;
 echo "The external IP is $externalIP";
 
-# Run the server
-echo "Starting master server";
-npm run server $key &
-
-# Create the VMs
 echo "Creating Cloud Worker VMs. This will take a while.";
 for i in `seq 1 $vms`
 do
@@ -53,6 +48,13 @@ gcloud compute instances create  \
 ben-worker-$i \
 --preemptible &
 done
+
+# Run the server
+echo "Starting master server";
+npm run server $key;
+
+# Create the VMs
+
 # Tasks completed
 echo "All puzzles completed.";
 
