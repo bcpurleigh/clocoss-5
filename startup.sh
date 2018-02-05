@@ -51,7 +51,7 @@ gcloud compute instances create  \
 --metadata-from-file  \
           startup-script=../startup-script.sh  \
 ben-worker-$i \
---preemptible;
+--preemptible &
 done
 # Tasks completed
 echo "All puzzles completed.";
