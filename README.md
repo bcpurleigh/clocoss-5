@@ -1,6 +1,6 @@
 # gcloud Master Worker VM Tool: clocoss-5
 
-A tool used to create and implement the [clocoss-master-worker](https://github.com/portsoc/clocoss-master-worker/) script. 
+A tool used to create and implement the [clocoss-master-worker](https://github.com/portsoc/clocoss-master-worker/) script.
 
 ## Installation:
 1. Clone the repo to a [Google Cloud SDK](https://cloud.google.com/sdk/docs/) enabled cli with https,http-server tags and full access to the Google Cloud API enabled.
@@ -13,4 +13,4 @@ For example:
 ```
 bash startup.sh 4
 ```
-3. Sit back and wait for all 100 puzzles to complete.
+3. Sit back and wait for all 200 puzzles to complete.
