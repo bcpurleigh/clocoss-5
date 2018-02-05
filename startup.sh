@@ -62,10 +62,6 @@ echo "All puzzles completed.";
 echo "Deleting the workers VMs and their disks";
 gcloud -q compute instances delete `seq -f 'ben-worker-%g' 1 $vms` &
 
-# Report back who contributed
-echo "Who actually did some work?";
-gcloud beta logging read "logName=projects/clocoss-2017/logs/clocoss-master-worker AND severity=info" --limit=$vms
-
 wait "$!"
 
 # We're done here
