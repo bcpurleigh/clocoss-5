@@ -23,7 +23,6 @@ echo "$workkey is key and $workserverIP is ip.";
 
 # run client
 npm run client $workkey $workserverIP:8080
-gcloud logging write vm-logger "$vmNumber said 'We contributed'"
 
 # turn off the worker vm
 sudo poweroff
