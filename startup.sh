@@ -36,9 +36,6 @@ externalIP=`curl -s -H "Metadata-Flavor: Google"  \
    "http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip"`;
 echo "The external IP is $externalIP";
 
-# Run the server
-echo "Starting master server. The workers will start working soon.";
-npm run server $key &
 
 # Create the VMs
 echo "Beginning to create Cloud Worker VMs.";
@@ -54,8 +51,9 @@ ben-worker-$i \
 --preemptible &
 done
 
-#wait for the main bits to finish before continuing to avoid race conditons
-wait "$!"
+# Run the server
+echo "Starting master server. The workers will start working soon.";
+npm run server $key;
 
 # Tasks completed
 echo "All puzzles completed. Main process finished.";
@@ -64,7 +62,7 @@ echo "All puzzles completed. Main process finished.";
 echo "Deleting the workers VMs and their disks if they are not already destroyed. This may take a short time.";
 gcloud -q compute instances delete `seq -f 'ben-worker-%g' 1 $vms` &
 
-#wait again for all the workers to delete
+#ensure everything else has finished first
 wait "$!"
 
 # We're done here
