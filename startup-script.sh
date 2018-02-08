@@ -17,7 +17,6 @@ npm install;
 # get metadata that was passed through
 workkey=`curl -s -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/attributes/key"`;
 workserverIP=`curl -s -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/attributes/ip"`;
-vmNumber=`curl -s -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/attributes/num"`;
 
 echo "$workkey is key and $workserverIP is ip.";
 
